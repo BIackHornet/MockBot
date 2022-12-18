@@ -1,12 +1,12 @@
-# 👂 Recorder Bot
+# Discord MockBot
 
-This example shows how you can use the voice receive functionality in @discordjs/voice to record users in voice channels
-and save the audio to local Ogg files.
+This bot was created from https://github.com/discordjs/voice-examples/tree/main/recorder and suited to my needs.
+
+I want to alter this bot to listen to a targeted user, and replay their voice back to them pitch shifted.
 
 ## Usage
 
 ```sh-session
-# Clone the examples repository, copy the `recorder` files in a folder and then run:
 $ npm install
 $ npm run build
 
