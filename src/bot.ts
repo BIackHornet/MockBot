@@ -1,7 +1,6 @@
 import { getVoiceConnection } from '@discordjs/voice';
-import { GatewayIntentBits } from 'discord-api-types/v10';
+import { GatewayIntentBits,ApplicationCommandOptionType } from 'discord-api-types/v10';
 import { Interaction, Constants, Client } from 'discord.js';
-import { deploy } from './deploy';
 import { interactionHandlers } from './interactions';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
@@ -13,16 +12,39 @@ const client = new Client({
 
 const { Events } = Constants;
 
-client.on(Events.CLIENT_READY, () => console.log('MockBot is online!'));
+client.on(Events.CLIENT_READY, async () =>{
+	console.log('MockBot is online!')
+	if (!client.user || !client.application) {
+		return;
+	}
+	await client.application.commands.set([
+					{
+							name: 'join',
+							description: 'Joins the voice channel that you are in',
+					},
+					{
+							name: 'mock',
+							description: 'Enables recording for a user',
+							options: [
+									{
+											name: 'speaker',
+											type: ApplicationCommandOptionType.User,
+											description: 'The user to record',
+											required: true,
+									},
+							],
+					},
+					{
+							name: 'leave',
+							description: 'Leave the voice channel',
+					},
+			])
+	});
 
 client.on(Events.MESSAGE_CREATE, async (message) => {
 	if (!message.guild) return;
 	if (!client.application?.owner) await client.application?.fetch();
-
-	if (message.content.toLowerCase() === '!deploy' && message.author.id === client.application?.owner?.id) {
-		await deploy(message.guild);
-		await message.reply('Deployed!');
-	}
+// put stuff here for loggggs
 });
 
 /**

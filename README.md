@@ -11,7 +11,7 @@ I want to alter this bot to listen to a targeted user, and replay their voice ba
 3. Parameter can be set to mock indefinitely\
 4. Recording is pitch shifted and sped up, then bot plays back recording\
 5. Bot leaves channel after playback\
-6. Make it so commands auto deploy
+~~~6. Make it so commands auto deploy~~~
 
 
 ## Usage
@@ -27,7 +27,4 @@ nano config.json
 
 # Start the bot
 npm start
-
-# Deploy commands in Discord
-!deploy
 ```
