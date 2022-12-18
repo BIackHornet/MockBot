@@ -43,7 +43,7 @@ async function join(
 	await interaction.followUp('Ready!');
 }
 
-async function record(
+async function mock(
 	interaction: CommandInteraction,
 	recordable: Set<Snowflake>,
 	client: Client,
@@ -89,5 +89,5 @@ export const interactionHandlers = new Map<
 	) => Promise<void>
 >();
 interactionHandlers.set('join', join);
-interactionHandlers.set('record', record);
+interactionHandlers.set('mock', mock);
 interactionHandlers.set('leave', leave);

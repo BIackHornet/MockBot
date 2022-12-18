@@ -6,11 +6,12 @@ I want to alter this bot to listen to a targeted user, and replay their voice ba
 
 ## To-Do List
 ```
-1. Change record command to mock
+~~1. Change record command to mock~~
 2. When record command is used, bot will join the channel. Remove Join command.
-3. Parameter can be set to mock indefinitely 
+3. Parameter can be set to mock indefinitely
 4. Recording is pitch shifted and sped up, then bot plays back recording
 5. Bot leaves channel after playback
+6. Make it so commands auto deploy
 ```
 
 ## Usage
