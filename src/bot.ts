@@ -19,10 +19,6 @@ client.on(Events.CLIENT_READY, async () =>{
 	}
 	await client.application.commands.set([
 					{
-							name: 'join',
-							description: 'Joins the voice channel that you are in',
-					},
-					{
 							name: 'mock',
 							description: 'Enables recording for a user',
 							options: [
