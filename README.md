@@ -26,4 +26,7 @@ nano config.json
 
 # Start the bot
 npm start
+
+# Deploy commands in Discord
+!deploy
 ```
