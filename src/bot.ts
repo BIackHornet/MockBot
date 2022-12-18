@@ -40,7 +40,6 @@ client.on(Events.CLIENT_READY, async () =>{
 client.on(Events.MESSAGE_CREATE, async (message) => {
 	if (!message.guild) return;
 	if (!client.application?.owner) await client.application?.fetch();
-// put stuff here for loggggs
 });
 
 /**
