@@ -12,7 +12,7 @@ export function createListeningStream(receiver: VoiceReceiver, userId: string, u
 	const opusStream = receiver.subscribe(userId, {
 		end: {
 			behavior: EndBehaviorType.AfterSilence,
-			duration: 1000,
+			duration: 500,
 		},
 	});
 

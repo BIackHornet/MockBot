@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { entersState, joinVoiceChannel, VoiceConnection, VoiceConnectionStatus } from '@discordjs/voice';
 import { Client, CommandInteraction, GuildMember, Snowflake } from 'discord.js';
 import { createListeningStream } from './createListeningStream';
@@ -11,6 +13,7 @@ async function mock(
 	const targetId = interaction.options.get('speaker')!.value! as Snowflake;
   const user = interaction.options.get('speaker')!.member
 	const name = interaction.options.get('speaker')!.user
+
 	await interaction.deferReply();
 	if (!connection) {
 			if (user instanceof GuildMember && user.voice.channel) {
@@ -35,18 +38,21 @@ async function mock(
 
 			receiver.speaking.on('start', (targetId) => {
 					if (recordable.has(targetId)) {
-							createListeningStream(receiver, targetId, client.users.cache.get(targetId));
+						createListeningStream(receiver, targetId, client.users.cache.get(targetId));
 					}
 			});
-	} catch (error) {
-			console.warn(error);
+			receiver.speaking.on('end', () => {
+				console.log("User stopped talking!")
+			});
+	} catch (error: any) {
+			console.warn(error.message);
 			await interaction.followUp('Failed to join voice channel within 20 seconds, please try again later!');
 	}
 
 		recordable.add(targetId);
 
 		const receiver = connection.receiver;
-		if (connection.receiver.speaking.users.has(targetId)) {
+		if (connection.receiver.speaking.users.has(targetId)){
 			createListeningStream(receiver, targetId, client.users.cache.get(targetId));
 		}
 		await interaction.followUp(`Started mocking ${name?.username}!`)

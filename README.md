@@ -9,7 +9,7 @@ I want to alter this bot to listen to a targeted user, and replay their voice ba
 ~~1. Change record command to mock~~\
 ~~2. When record command is used, bot will join the channel. Remove Join command.~~\
 3. Plays back the voice file\
-4. Parameter can be set to mock indefinitely\
+~~4. Parameter can be set to mock indefinitely~~\
 5. Recording is pitch shifted and sped up, then bot plays back recording\
 6. Bot leaves channel after playback\
 ~~7. Make it so commands auto deploy~~

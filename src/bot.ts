@@ -23,16 +23,16 @@ client.on(Events.CLIENT_READY, async () =>{
 							description: 'Enables recording for a user',
 							options: [
 									{
-											name: 'speaker',
-											type: ApplicationCommandOptionType.User,
-											description: 'The user to record',
-											required: true,
-									},
+										name: 'speaker',
+										type: ApplicationCommandOptionType.User,
+										description: 'The user to record',
+										required: true,
+									}
 							],
 					},
 					{
-							name: 'leave',
-							description: 'Leave the voice channel',
+						name: 'leave',
+						description: 'Leave the voice channel',
 					},
 			])
 	});
